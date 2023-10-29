@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Operación de Conjuntos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #f22112;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        div {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #f01919;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #b30000;
+        }
+
+        h2 {
+            color: #ff0000;
+        }
+
+        ol {
+            text-align: left;
+            margin: 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Operación de Conjuntos A - B</h1>
+    <p>Operación de Conjuntos: A - B</p>
+    <div>
+        <p>Conjunto A = {a, 2, c, 3, e, 4, g, 5, i, 6, k, 7, m}</p>
+        <p>Conjunto B = {a, b, c, d, e, f, g, h, i}</p>
+    </div>
+    <button onclick="calcularDiferencia()">Calcular A - B</button>
+    <h2>Resultado:</h2>
+    <p id="resultado"></p>
+    <h2>Procedimiento:</h2>
+    <ol id="procedimiento">
+        <li>Para calcular A - B, revisa cada elemento en A.</li>
+        <li>Comprueba si el elemento existe en B.</li>
+        <li>Si un elemento de A no se encuentra en B, agrégalo al conjunto resultante.</li>
+        <li>El conjunto resultante será la respuesta de A - B</li>
+    </ol>
+
+    <script>
+        function calcularDiferencia() {
+            const conjuntoA = new Set(['a', 2, 'c', 3, 'e', 4, 'g', 5, 'i', 6, 'k', 7, 'm']);
+            const conjuntoB = new Set(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']);
+            const resultado = new Set();
+
+            conjuntoA.forEach(element => {
+                if (!conjuntoB.has(element)) {
+                    resultado.add(element);
+                }
+            });
+
+            mostrarResultado(resultado);
+        }
+
+        function mostrarResultado(resultado) {
+            const resultadoElement = document.getElementById("resultado");
+            resultadoElement.textContent = `A - B = {${Array.from(resultado).join(', ')}}`;
+        }
+    </script>
+</body>
+</html>
+

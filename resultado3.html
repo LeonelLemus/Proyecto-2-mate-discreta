@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cálculo del MCD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #808182;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #696969;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #5d5e60;
+        }
+
+        h2 {
+            color: #5c5d5e;
+        }
+
+        ol {
+            text-align: left;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        li strong {
+            color: #4c4d4e;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cálculo del MCD de 150 y 39</h1>
+    <p>Para calcular el MCD de 150 y 39, utilizamos el Algoritmo de Euclides:</p>
+    <button onclick="calcularMCD()">Calcular MCD</button>
+    <h2>Resultado:</h2>
+    <ol id="procedimiento">
+    </ol>
+
+    <script>
+        function calcularMCD() {
+            const numero1 = 150;
+            const numero2 = 39;
+            const procedimientoElement = document.getElementById("procedimiento");
+
+            let a = numero1;
+            let b = numero2;
+            let residuo;
+
+            while (b !== 0) {
+                residuo = a % b;
+                procedimientoElement.innerHTML += `<li>Dividir ${a} entre ${b}, cociente ${Math.floor(a / b)}, residuo ${residuo}</li>`;
+                a = b;
+                b = residuo;
+            }
+            procedimientoElement.innerHTML += `<li><strong>Resultado:</strong> El MCD de ${numero1} y ${numero2} es ${a}(Cuando llegamos a un residuo de 0, el último divisor no nulo es el MCD de 150 y 39.
+
+Por lo tanto, el MCD de 150 y 39 es 3)</li>`;
+        }
+    </script>
+</body>
+</html>
+
+
